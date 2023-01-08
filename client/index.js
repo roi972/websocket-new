@@ -14,7 +14,7 @@ wsClient.on('connect', (connection) => {
   });
 
   connection.on('close', ()=>{
-    console.log('connection closed');
+    console.log('connection closed, clients:');
   });
 
   connection.on('message', (message)=>{
@@ -25,4 +25,4 @@ wsClient.on('connect', (connection) => {
 
 })
 
-wsClient.connect('ws://localhost');
+wsClient.connect('ws://localhost:8080');

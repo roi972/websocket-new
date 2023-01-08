@@ -1,0 +1,18 @@
+config:
+  target: "ws://localhost:3000"
+  phases:
+    - duration: 20
+      arrivalRate: 5
+      maxVusers: 50
+      name: Warm up
+
+scenarios:
+  - name: My WebSocket test
+    engine: ws # Enable the Socket.io engine
+    flow:
+      - loop:
+        - send: "hello"
+        - think: 1
+        count: 30
+      - think: 60 # Pause for 15 seconds.
+      - send: "bye"
